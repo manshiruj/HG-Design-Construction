@@ -11,6 +11,8 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon">
+
     <script>
         tailwind.config = {
             theme: {
@@ -77,22 +79,64 @@
         ::selection { background: #3b82f6; color: white; }
     </style>
 </head>
+
 <body class="antialiased overflow-x-hidden">
 
-    <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div>
+<!-- Custom Cursor -->
+<div class="cursor-dot"></div>
+<div class="cursor-outline"></div>
 
-    <nav class="fixed w-full z-50 py-6 px-8 mix-blend-difference text-white flex justify-between items-center">
-        <div class="text-2xl font-bold tracking-tighter hover-trigger">
-            HG<span class="font-light text-blue-400">.Design</span>
+<!-- Navbar -->
+<nav class="fixed w-full z-50 py-3.5 px-4 md:py-4 md:px-8 text-white flex justify-between items-center">
+    <div class="flex items-center gap-2 md:gap-3 hover-trigger relative z-[10002]">
+        <img src="./assets/HG_logo.png" alt="HG Design Logo" class="w-8 h-8 md:w-10 md:h-10 object-contain brightness-0 invert">
+        <div class="text-md md:text-xl font-bold tracking-tighter">
+            HG<span class="font-light text-blue-400">.Design & Construction</span>
         </div>
-        <div class="hidden md:flex gap-8 text-sm uppercase tracking-widest">
-            <a href="#about" class="hover:text-blue-400 transition hover-trigger">About</a>
-            <a href="#services" class="hover:text-blue-400 transition hover-trigger">Services</a>
-            <a href="#contact" class="hover:text-blue-400 transition hover-trigger">Contact</a>
-        </div>
-    </nav>
+    </div>
+    <div id="hamburger" class="md:hidden cursor-pointer hover-trigger z-[10001] relative">
+        <i class="fa-solid fa-bars text-2xl pointer-events-none"></i>
+    </div>
+    <div class="hidden md:flex gap-8 text-sm uppercase tracking-widest mix-blend-difference">
+        <a href="#about" class="hover:text-blue-400 transition hover-trigger">About</a>
+        <a href="#services" class="hover:text-blue-400 transition hover-trigger">Services</a>
+        <a href="#blog" class="hover:text-blue-400 transition hover-trigger">Blog</a>
+        <a href="#contact" class="hover:text-blue-400 transition hover-trigger">Contact</a>
+    </div>
+</nav>
 
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="fixed inset-0 md:hidden z-[10000]" style="transform: translateY(-100%); visibility: hidden; opacity: 0;">
+    <div class="absolute inset-0 bg-hgDark/95 backdrop-blur-lg"></div>
+    
+    <div class="relative h-full flex flex-col">
+        <div class="flex justify-end p-6">
+            <button id="close-menu" class="text-white hover-trigger">
+                <i class="fa-solid fa-xmark text-3xl"></i>
+            </button>
+        </div>
+        
+        <div class="flex-1 flex flex-col items-center justify-center gap-8 px-8">
+            <a href="#about" class="menu-item text-3xl font-bold text-white hover:text-blue-400 transition-colors">About</a>
+            <a href="#services" class="menu-item text-3xl font-bold text-white hover:text-blue-400 transition-colors">Services</a>
+            <a href="#blog" class="menu-item text-3xl font-bold text-white hover:text-blue-400 transition-colors">Blog</a>
+            <a href="#contact" class="menu-item text-3xl font-bold text-white hover:text-blue-400 transition-colors">Contact</a>
+            
+            <div class="flex flex-col gap-4 mt-8 w-full max-w-sm">
+                <a href="tel:+919661755645" class="bg-blue-600 text-white px-6 py-4 rounded-full text-center font-bold hover:bg-blue-500 transition flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+91 966-175-5645</span>
+                </a>
+                <a href="https://wa.me/918789890316" class="border-2 border-blue-400 text-blue-400 px-6 py-4 rounded-full text-center font-bold hover:bg-blue-400 hover:text-white transition flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <span>WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<main>
     <section class="relative h-screen flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0 z-0">
             <div class="absolute inset-0 bg-gradient-to-b from-hgDark/80 via-hgDark/60 to-hgDark z-10"></div>
@@ -101,16 +145,16 @@
         </div>
 
         <div class="relative z-20 text-center px-4 max-w-5xl mx-auto">
-            <p class="hero-text font-script text-3xl md:text-5xl text-blue-300 mb-6 opacity-0 translate-y-10">
-                Your Dream, Our Priority
+            <p class="hero-text font-script text-lg md:text-3xl lg:text-4xl text-blue-300 mb-6 opacity-0 translate-y-10 font-bold">
+                "मेरा सेवा आपका पसंद,<br> मेरा मेहनत आपका भविष्य"
             </p>
-            <h1 class="hero-text text-6xl md:text-9xl font-bold leading-none tracking-tighter mb-8 opacity-0 translate-y-10">
+            <h1 class="hero-text text-5xl md:text-9xl font-bold leading-none tracking-tighter mb-8 opacity-0 translate-y-10">
                 PRECISION <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">CONSTRUCTION</span>
             </h1>
             <div class="hero-text opacity-0 translate-y-10 mt-8">
-                <a href="#contact" class="hover-trigger group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-blue-600 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600 overflow-hidden">
+                <a href="#contact" class="hover-trigger group relative inline-flex items-center justify-center px-6 md:px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-blue-600 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600 overflow-hidden">
                     <span class="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-black"></span>
-                    <span class="relative">Book Site Visit</span>
+                    <span class="relative text-sm md:text-lg">Book Site Visit</span>
                     <i class="fa-solid fa-arrow-right ml-2 relative group-hover:translate-x-1 transition"></i>
                 </a>
             </div>
@@ -120,20 +164,169 @@
             <i class="fa-solid fa-chevron-down text-white/50 text-xl"></i>
         </div>
     </section>
+</main>
 
-    <div class="bg-blue-600 overflow-hidden py-3 whitespace-nowrap rotate-1 shadow-[0_0_30px_rgba(37,99,235,0.4)] relative z-30 -mt-10">
-        <div class="marquee-content inline-block text-black font-bold text-xl uppercase tracking-widest">
+    <!-- Marquee -->
+    <div class="bg-blue-600 overflow-hidden py-1.5 md:py-3 whitespace-nowrap rotate-1 shadow-[0_0_30px_rgba(37,99,235,0.4)] relative z-30 -mt-8 md:-mt-10">
+        <div class="marquee-content inline-block text-black font-bold text-md md:text-xl uppercase tracking-widest">
             Architectural Design • Structural Engineering • MEP Services • Interior Design • Cost Estimation • Project Management •  Architectural Design • Structural Engineering • MEP Services •
         </div>
     </div>
 
-    <section id="services" class="py-32 px-4 md:px-12 bg-hgDark relative">
+<!-- Stats Section -->
+<section class="py-12 px-8 bg-hgDark">
+    <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12">
+            <!-- Stat 1 -->
+            <div class="text-center">
+                <div class="text-3xl md:text-5xl font-bold text-white mb-1 md:mb-2">M.Tech</div>
+                <div class="text-xs md:text-base text-blue-300 uppercase tracking-wider">& AMIE Certified</div>
+            </div>
+            
+            <!-- Stat 2 -->
+            <div class="text-center">
+                <div class="text-3xl md:text-5xl font-bold text-white mb-1 md:mb-2">8+</div>
+                <div class="text-xs md:text-base text-blue-300 uppercase tracking-wider">Years Experience</div>
+            </div>
+            
+            <!-- Stat 3 -->
+            <div class="text-center">
+                <div class="text-3xl md:text-5xl font-bold text-white mb-1 md:mb-2">Vastu</div>
+                <div class="text-xs md:text-base text-blue-300 uppercase tracking-wider">Expert</div>
+            </div>
+            
+            <!-- Stat 4 -->
+            <div class="text-center">
+                <div class="text-3xl md:text-5xl font-bold text-white mb-1 md:mb-2">500+</div>
+                <div class="text-xs md:text-base text-blue-300 uppercase tracking-wider">Happy Clients</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Us Section -->
+<section id="about" class="py-20 md:py-32 px-6 md:px-8 lg:px-12 bg-hgDark relative overflow-hidden">
+    <!-- Background Decoration -->
+    <div class="absolute top-20 right-0 w-96 h-96 bg-hgAccent/5 rounded-full blur-3xl"></div>
+    
+    <div class="max-w-7xl mx-auto relative z-10">
+        <!-- Title Section -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-20 border-b border-white/10 pb-6 md:pb-8">
+            <h2 class="text-4xl md:text-7xl font-bold text-white about-title">
+                ABOUT <span class="text-gray-600">US</span>
+            </h2>
+            <p class="text-blue-300 md:w-1/3 mt-4 md:mt-0 about-subtitle text-sm md:text-base">
+                Building dreams with precision, integrity, and a commitment to excellence in every project.
+            </p>
+        </div>
+
+        <!-- Content Grid -->
+        <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-start">
+            <!-- Left: Visual Element -->
+            <div class="about-image space-y-4 md:space-y-6">
+                <!-- Main Card -->
+                <div class="relative p-6 md:p-8 rounded-2xl bg-gradient-to-br from-hgBlue to-hgDark border border-hgAccent/30 backdrop-blur-sm">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-hgAccent/10 rounded-full blur-2xl"></div>
+                    
+                    <div class="relative space-y-4 md:space-y-6">                        
+                        <div>
+                            <p class="text-hgGlow font-semibold text-base md:text-lg">HG Design & Constructions</p>
+                            <p class="text-gray-400 text-xs md:text-sm">Est. 2017</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Key Highlights Cards -->
+                <div class="grid grid-cols-1 gap-3 md:gap-4">
+                    <div class="p-4 md:p-5 rounded-xl bg-hgBlue/50 border border-hgAccent/20 hover:border-hgAccent/40 transition-all group">
+                        <div class="flex items-start gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-hgAccent/20 flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-hgAccent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-sm md:text-base mb-1">Strong Structure</h4>
+                                <p class="text-gray-400 text-xs md:text-sm">Built to last with superior engineering and quality materials</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-4 md:p-5 rounded-xl bg-hgBlue/50 border border-hgAccent/20 hover:border-hgAccent/40 transition-all group">
+                        <div class="flex items-start gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-hgAccent/20 flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-hgAccent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-sm md:text-base mb-1">As Per Vastu</h4>
+                                <p class="text-gray-400 text-xs md:text-sm">Harmonious designs aligned with Vastu principles for positive energy</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-4 md:p-5 rounded-xl bg-hgBlue/50 border border-hgAccent/20 hover:border-hgAccent/40 transition-all group">
+                        <div class="flex items-start gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-hgAccent/20 flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-hgAccent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-sm md:text-base mb-1">Budget Friendly</h4>
+                                <p class="text-gray-400 text-xs md:text-sm">Cost-effective solutions without compromising on quality</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Content -->
+            <div class="about-content space-y-6 md:space-y-8">
+                <div class="space-y-3 md:space-y-4">
+                    <div class="inline-block px-3 md:px-4 py-1.5 md:py-2 bg-hgAccent/10 border border-hgAccent/30 rounded-full">
+                        <span class="text-hgGlow text-xs md:text-sm font-semibold uppercase tracking-wider">Who We Are</span>
+                    </div>
+                    
+                    <h3 class="text-2xl md:text-3xl lg:text-5xl font-bold text-white leading-tight">
+                        Transforming Visions Into <span class="text-hgAccent">Reality</span>
+                    </h3>
+                </div>
+                
+                <div class="space-y-3 md:space-y-4">
+                    <p class="text-gray-300 text-base md:text-lg leading-relaxed">
+                        HG Design & Constructions stands at the forefront of innovative construction and architectural excellence. Since 2017, we have been dedicated to creating spaces that seamlessly blend functionality, aesthetics, and sustainability.
+                    </p>
+                    
+                    <p class="text-gray-300 text-base md:text-lg leading-relaxed">
+                       Our team of M.Tech and AMIE certified professionals brings a wealth of expertise in structural engineering, architectural design, and Vastu-compliant planning. We believe that every project is an opportunity to push boundaries and exceed expectations.
+                    </p>
+                </div>
+
+                <!-- CTA -->
+                <div class="pt-4 md:pt-6 flex flex-col sm:flex-row gap-3 md:gap-4">
+                    <a href="#contact" class="px-6 md:px-8 py-3 md:py-4 bg-hgAccent hover:bg-hgGlow text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-hgAccent/50 hover:scale-105 text-center text-sm md:text-base">
+                        Start Your Project
+                    </a>
+                    <a href="#services" class="px-6 md:px-8 py-3 md:py-4 bg-transparent border-2 border-hgAccent text-hgAccent hover:bg-hgAccent hover:text-white font-semibold rounded-lg transition-all duration-300 text-center text-sm md:text-base">
+                        View Services
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>    
+
+<!-- Services - Section -->
+    <section id="services" class="py-20 md:py-32 px-6 md:px-8 lg:px-12 bg-hgDark relative overflow-hidden">
         <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-20 border-b border-white/10 pb-8">
-                <h2 class="text-5xl md:text-7xl font-bold text-white section-title">
+
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-20 border-b border-white/10 pb-6 md:pb-8">
+                <h2 class="text-4xl md:text-7xl lg:text-7xl font-bold text-white section-title">
                     CORE <span class="text-gray-600">SERVICES</span>
                 </h2>
-                <p class="text-blue-300 md:w-1/3 mt-4 md:mt-0">
+                <p class="text-blue-300 md:w-1/3 mt-4 md:mt-0 about-subtitle text-sm md:text-base">
                     Integrating aesthetics with structural integrity. We handle everything from the blueprint to the finishing touch.
                 </p>
             </div>
@@ -141,52 +334,612 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="service-card glass-card p-8 rounded-2xl hover:bg-white/5 transition duration-500 group cursor-pointer hover-trigger">
                     <div class="flex justify-between items-start mb-8">
-                        <i class="fa-solid fa-compass-drafting text-4xl text-blue-500 group-hover:text-cyan-400 transition"></i>
+                        <i class="fa-solid fa-drafting-compass text-4xl text-blue-500 group-hover:text-cyan-400 transition"></i>
                         <span class="text-xs text-gray-500 border border-gray-700 px-2 py-1 rounded-full">01</span>
                     </div>
-                    <h3 class="text-2xl font-bold mb-2 group-hover:translate-x-2 transition">Architectural Design</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Modern layouts tailored to your lifestyle with 3D visualization and spatial planning.</p>
+                    <h3 class="text-2xl font-bold mb-2 group-hover:translate-x-2 transition">Full Building Design</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Modern, functional, and efficient architectural planning tailored to your needs.</p>
+                </div>
+
+                <div class="service-card glass-card p-8 rounded-2xl hover:bg-white/5 transition duration-500 group cursor-pointer hover-trigger">
+                    <div class="flex justify-between items-start mb-8">
+                        <i class="fa-solid fa-building text-4xl text-blue-500 group-hover:text-cyan-400 transition"></i>
+                        <span class="text-xs text-gray-500 border border-gray-700 px-2 py-1 rounded-full">02</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2 group-hover:translate-x-2 transition">Building Construction</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Strong, durable, and budget-friendly construction with quality materials.</p>
                 </div>
 
                 <div class="service-card glass-card p-8 rounded-2xl hover:bg-white/5 transition duration-500 group cursor-pointer hover-trigger">
                     <div class="flex justify-between items-start mb-8">
                         <i class="fa-solid fa-layer-group text-4xl text-blue-500 group-hover:text-cyan-400 transition"></i>
-                        <span class="text-xs text-gray-500 border border-gray-700 px-2 py-1 rounded-full">02</span>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-2 group-hover:translate-x-2 transition">Structural Design</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Safety-first engineering ensuring stability, durability, and load-bearing optimization.</p>
-                </div>
-
-                <div class="service-card glass-card p-8 rounded-2xl hover:bg-white/5 transition duration-500 group cursor-pointer hover-trigger">
-                    <div class="flex justify-between items-start mb-8">
-                        <i class="fa-solid fa-calculator text-4xl text-blue-500 group-hover:text-cyan-400 transition"></i>
                         <span class="text-xs text-gray-500 border border-gray-700 px-2 py-1 rounded-full">03</span>
                     </div>
-                    <h3 class="text-2xl font-bold mb-2 group-hover:translate-x-2 transition">Estimating & Costing</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Precise budget planning and material costing to prevent overruns.</p>
+                    <h3 class="text-2xl font-bold mb-2 group-hover:translate-x-2 transition">Structural Design</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Safe, load-optimized, and earthquake-resistant structural engineering solutions.</p>
                 </div>
                 
                  <div class="service-card glass-card p-8 rounded-2xl hover:bg-white/5 transition duration-500 group cursor-pointer hover-trigger">
                     <div class="flex justify-between items-start mb-8">
-                        <i class="fa-solid fa-swatchbook text-4xl text-blue-500 group-hover:text-cyan-400 transition"></i>
+                        <i class="fa-solid fa-helmet-safety text-4xl text-blue-500 group-hover:text-cyan-400 transition"></i>
                         <span class="text-xs text-gray-500 border border-gray-700 px-2 py-1 rounded-full">04</span>
                     </div>
-                    <h3 class="text-2xl font-bold mb-2 group-hover:translate-x-2 transition">Interior & Exterior</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">High-end finishing, elevation design, and interior decor execution.</p>
+                    <h3 class="text-2xl font-bold mb-2 group-hover:translate-x-2 transition">Supervision & Management</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Complete on-site supervision and project management with strict quality control.</p>
                 </div>
 
-                 <div class="service-card glass-card p-8 rounded-2xl hover:bg-white/5 transition duration-500 group cursor-pointer hover-trigger">
+                 <div class="hidden md:block service-card glass-card p-8 rounded-2xl hover:bg-white/5 transition duration-500 group cursor-pointer hover-trigger">
                     <div class="flex justify-between items-start mb-8">
-                        <i class="fa-solid fa-helmet-safety text-4xl text-blue-500 group-hover:text-cyan-400 transition"></i>
+                        <i class="fa-solid fa-location-crosshairs text-4xl text-blue-500 group-hover:text-cyan-400 transition"></i>
                         <span class="text-xs text-gray-500 border border-gray-700 px-2 py-1 rounded-full">05</span>
                     </div>
-                    <h3 class="text-2xl font-bold mb-2 group-hover:translate-x-2 transition">Project Mgmt</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">Full supervision, site visits, and contractor management from start to finish.</p>
+                    <h3 class="text-2xl font-bold mb-2 group-hover:translate-x-2 transition">Vastu-Compliant Planning</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Designs aligned with Vastu principles for peaceful, balanced, and positive living.</p>
                 </div>
+
+                 <div class="hidden md:block service-card glass-card p-8 rounded-2xl hover:bg-white/5 transition duration-500 group cursor-pointer hover-trigger">
+                    <div class="flex justify-between items-start mb-8">
+                        <i class="fa-solid fa-screwdriver-wrench text-4xl text-blue-500 group-hover:text-cyan-400 transition"></i>
+                        <span class="text-xs text-gray-500 border border-gray-700 px-2 py-1 rounded-full">06</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2 group-hover:translate-x-2 transition">Renovation & Consultancy</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Expert guidance for renovation, redesign, budgeting, and smart cost planning.</p>
+                </div>
+
             </div>
         </div>
     </section>
 
+<!-- Certifications & Awards Section -->
+<section class="py-20 md:py-32 px-6 md:px-8 lg:px-12 bg-hgDark relative overflow-hidden">
+    <!-- Background Decoration -->
+    <div class="absolute top-20 right-0 w-96 h-96 bg-hgAccent/5 rounded-full blur-3xl"></div>
+    
+    <div class="max-w-7xl mx-auto relative z-10">
+        <!-- Title Section -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-20 border-b border-white/10 pb-6 md:pb-8">
+            <h2 class="text-4xl md:text-7xl font-bold text-white cert-title">
+                CERTIFICATIONS <span class="text-gray-600">& AWARDS</span>
+            </h2>
+            <p class="text-blue-300 md:w-1/3 mt-4 md:mt-0 cert-subtitle text-sm md:text-base">
+                Professional credentials validating our commitment to engineering excellence.
+            </p>
+        </div>
+
+        <!-- Certifications Grid -->
+        <div class="grid md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
+            
+            <!-- M.Tech Certificate -->
+            <div class="cert-card group relative overflow-hidden rounded-2xl bg-gradient-to-br from-hgBlue to-hgDark border border-hgAccent/30 p-8 md:p-10 hover:border-hgAccent/60 transition-all duration-500 cursor-pointer hover-trigger">
+                <!-- Glow Effect -->
+                <div class="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-cyan-500/0 group-hover:from-blue-500/10 group-hover:to-cyan-500/10 transition-all duration-500"></div>
+                <div class="absolute top-0 right-0 w-40 h-40 bg-hgAccent/10 rounded-full blur-2xl group-hover:blur-3xl transition-all duration-500"></div>
+                
+                <div class="relative z-10">
+                    <!-- Icon -->
+                    <div class="w-16 h-16 md:w-20 md:h-20 rounded-xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                        <svg class="w-8 h-8 md:w-10 md:h-10 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    
+                    <!-- Content -->
+                    <div class="space-y-3">
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <h3 class="text-2xl md:text-3xl font-bold text-white mb-2 group-hover:text-blue-300 transition-colors">
+                                    M.Tech
+                                </h3>
+                                <p class="text-blue-300 font-semibold text-sm md:text-base">Master of Technology</p>
+                            </div>
+                            <div class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
+                        </div>
+                        
+                        <div class="pt-4 border-t border-white/10">
+                            <p class="text-gray-400 text-sm leading-relaxed">
+                                Advanced degree in engineering, demonstrating expertise in structural design, construction management, and innovative building technologies.
+                            </p>
+                        </div>
+                        
+                        <div class="flex items-center gap-2 pt-2">
+                            <svg class="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-xs text-green-400 font-semibold uppercase tracking-wider">Certified</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AMIE Certificate -->
+            <div class="cert-card group relative overflow-hidden rounded-2xl bg-gradient-to-br from-hgBlue to-hgDark border border-hgAccent/30 p-8 md:p-10 hover:border-hgAccent/60 transition-all duration-500 cursor-pointer hover-trigger">
+                <!-- Glow Effect -->
+                <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-blue-500/0 group-hover:from-cyan-500/10 group-hover:to-blue-500/10 transition-all duration-500"></div>
+                <div class="absolute top-0 right-0 w-40 h-40 bg-cyan-500/10 rounded-full blur-2xl group-hover:blur-3xl transition-all duration-500"></div>
+                
+                <div class="relative z-10">
+                    <!-- Icon -->
+                    <div class="w-16 h-16 md:w-20 md:h-20 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                        <svg class="w-8 h-8 md:w-10 md:h-10 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                    </div>
+                    
+                    <!-- Content -->
+                    <div class="space-y-3">
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <h3 class="text-2xl md:text-3xl font-bold text-white mb-2 group-hover:text-cyan-300 transition-colors">
+                                    AMIE
+                                </h3>
+                                <p class="text-cyan-300 font-semibold text-sm md:text-base">Associate Member</p>
+                            </div>
+                            <div class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
+                        </div>
+                        
+                        <div class="pt-4 border-t border-white/10 space-y-2">
+                            <p class="text-gray-400 text-sm leading-relaxed">
+                                Professional engineering qualification recognized by the Institution of Engineers (India), validating comprehensive technical knowledge.
+                            </p>
+                            <div class="flex items-center gap-2 pt-1">
+                                <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path>
+                                </svg>
+                                <span class="text-xs text-gray-500 font-mono">AM1959448</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center gap-2 pt-2">
+                            <svg class="w-4 h-4 text-cyan-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="text-xs text-green-400 font-semibold uppercase tracking-wider">Verified</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Meet the Experts Section -->
+<section class="py-12 md:py-20 px-6 md:px-8 lg:px-12 bg-hgDark relative overflow-hidden">
+    
+    <div class="max-w-7xl mx-auto relative z-10">
+        <!-- Section Header -->
+        <div class="text-center mb-8 md:mb-12">
+            <div class="inline-block mb-3 md:mb-4">
+                <span class="team-badge text-blue-400 text-xs md:text-sm font-bold uppercase tracking-[0.3em] relative">
+                    <span class="absolute -left-6 md:-left-8 top-1/2 w-4 md:w-6 h-[2px] bg-blue-400"></span>
+                    The Team
+                    <span class="absolute -right-6 md:-right-8 top-1/2 w-4 md:w-6 h-[2px] bg-blue-400"></span>
+                </span>
+            </div>
+            <h2 class="team-title text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-3 md:mb-4 tracking-tight">
+                MEET THE <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-500">EXPERTS</span>
+            </h2>
+            <p class="team-desc text-gray-400 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
+                Behind every project is a skilled team committed to quality and excellence.
+            </p>
+        </div>
+
+        <!-- Team Grid -->
+        <div class="grid md:grid-cols-3 gap-6 md:gap-8">
+            
+            <!-- Team Member 1 - Mukesh Kumar -->
+            <div class="team-card group relative">
+                <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-hgBlue/80 to-hgDark border border-blue-400/10 hover:border-hgAccent/60 transition-all duration-500 p-8 md:p-12 text-center min-h-[450px] flex flex-col items-center justify-center">
+                    <!-- Floating Particles Effect -->
+                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                        <div class="absolute top-1/4 left-1/4 w-2 h-2 bg-blue-400 rounded-full animate-ping"></div>
+                        <div class="absolute top-3/4 right-1/3 w-2 h-2 bg-cyan-400 rounded-full animate-ping" style="animation-delay: 0.5s;"></div>
+                        <div class="absolute bottom-1/4 left-2/3 w-2 h-2 bg-blue-300 rounded-full animate-ping" style="animation-delay: 1s;"></div>
+                    </div>
+
+                    <!-- Avatar -->
+                    <div class="mb-6 md:mb-8 relative">
+                        <div class="w-32 h-32 md:w-40 md:h-40 rounded-full border-2 border-blue-400 flex items-center justify-center text-hgAccent-600 text-5xl md:text-6xl font-bold group-hover:scale-110 group-hover:border-blue-400 transition-all duration-500 relative z-10">
+                            MK
+                        </div>
+                        <div class="absolute inset-0 bg-blue-500/10 rounded-full blur-2xl group-hover:bg-blue-500/20 transition-all duration-500"></div>
+                    </div>
+                    
+                    <!-- Content -->
+                    <div class="relative z-10 space-y-4">
+                        <h3 class="text-2xl md:text-3xl font-bold text-white group-hover:text-blue-300 transition-colors duration-300">
+                            Mukesh Kumar
+                        </h3>
+                        
+                        <p class="text-hgAccent text-xs md:text-sm font-bold uppercase tracking-[0.2em]">
+                            Founder & Lead Engineer
+                        </p>
+                        
+                        <p class="text-gray-400 text-sm md:text-base leading-relaxed max-w-sm mx-auto">
+                            M.Tech & AMIE certified professional with 8+ years of expertise in structural engineering and architectural innovation.
+                        </p>
+                    </div>
+
+                    <!-- Glow Effect -->
+                    <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/0 to-cyan-500/0 group-hover:from-blue-500/5 group-hover:to-cyan-500/5 pointer-events-none transition-all duration-500"></div>
+                </div>
+            </div>
+
+            <!-- Team Member 2 - Priyanka Kumari -->
+             <div class="team-card group relative">
+                <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-hgBlue/80 to-hgDark border border-purple-500/10 hover:border-hgAccent/60 transition-all duration-500 p-8 md:p-12 text-center min-h-[450px] flex flex-col items-center justify-center">
+                    <!-- Floating Particles Effect -->
+                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                        <div class="absolute top-1/4 left-1/4 w-2 h-2 bg-blue-400 rounded-full animate-ping"></div>
+                        <div class="absolute top-3/4 right-1/3 w-2 h-2 bg-cyan-400 rounded-full animate-ping" style="animation-delay: 0.5s;"></div>
+                        <div class="absolute bottom-1/4 left-2/3 w-2 h-2 bg-blue-300 rounded-full animate-ping" style="animation-delay: 1s;"></div>
+                    </div>
+
+                    <!-- Avatar -->
+                    <div class="mb-6 md:mb-8 relative">
+                        <div class="w-32 h-32 md:w-40 md:h-40 rounded-full border-2 border-purple-500 flex items-center justify-center text-hgAccent-600 text-5xl md:text-6xl font-bold group-hover:scale-110 group-hover:border-blue-400 transition-all duration-500 relative z-10">
+                            PK
+                        </div>
+                        <div class="absolute inset-0 bg-blue-500/10 rounded-full blur-2xl group-hover:bg-blue-500/20 transition-all duration-500"></div>
+                    </div>
+                    
+                    <!-- Content -->
+                    <div class="relative z-10 space-y-4">
+                        <h3 class="text-2xl md:text-3xl font-bold text-white group-hover:text-blue-300 transition-colors duration-300">
+                            Priyanka Kumari
+                        </h3>
+                        
+                        <p class="text-purple-500 text-xs md:text-sm font-bold uppercase tracking-[0.2em]">
+                            Senior Interior Designer
+                        </p>
+                        
+                        <p class="text-gray-400 text-sm md:text-base leading-relaxed max-w-sm mx-auto">
+                            Creative visionary specializing in architectural aesthetics, interior planning, and client-centric design solutions.
+                    </div>
+                    <!-- Glow Effect -->
+                    <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-purple-500/0 to-pink-500/0 group-hover:from-purple-500/5 group-hover:to-pink-500/5 pointer-events-none transition-all duration-500"></div>
+                </div>
+            </div>
+
+            <!-- Team Member 3 - Jitesh Kumar -->
+            <div class="team-card group relative">
+                <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-hgBlue/80 to-hgDark border border-teal-600/10 hover:border-hgAccent/60 transition-all duration-500 p-8 md:p-12 text-center min-h-[450px] flex flex-col items-center justify-center">
+                    <!-- Floating Particles Effect -->
+                    <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                        <div class="absolute top-1/4 left-1/4 w-2 h-2 bg-blue-400 rounded-full animate-ping"></div>
+                        <div class="absolute top-3/4 right-1/3 w-2 h-2 bg-cyan-400 rounded-full animate-ping" style="animation-delay: 0.5s;"></div>
+                        <div class="absolute bottom-1/4 left-2/3 w-2 h-2 bg-blue-300 rounded-full animate-ping" style="animation-delay: 1s;"></div>
+                    </div>
+
+                    <!-- Avatar -->
+                    <div class="mb-6 md:mb-8 relative">
+                        <div class="w-32 h-32 md:w-40 md:h-40 rounded-full border-2 border-teal-600 flex items-center justify-center text-hgAccent-600 text-5xl md:text-6xl font-bold group-hover:scale-110 group-hover:border-blue-400 transition-all duration-500 relative z-10">
+                            JK
+                        </div>
+                        <div class="absolute inset-0 bg-blue-500/10 rounded-full blur-2xl group-hover:bg-blue-500/20 transition-all duration-500"></div>
+                    </div>
+                    
+                    <!-- Content -->
+                    <div class="relative z-10 space-y-4">
+                        <h3 class="text-2xl md:text-3xl font-bold text-white group-hover:text-blue-300 transition-colors duration-300">
+                            Jitesh Kumar
+                        </h3>
+                        
+                        <p class="text-teal-600 text-xs md:text-sm font-bold uppercase tracking-[0.2em]">
+                            Project Manager
+                        </p>
+                        
+                        <p class="text-gray-400 text-sm md:text-base leading-relaxed max-w-sm mx-auto">
+                            Dedicated professional ensuring seamless project execution, quality control, and timely delivery of construction milestones.
+                        </p>
+                    </div>
+
+                    <!-- Glow Effect -->
+                    <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-emerald-500/0 to-teal-500/0 group-hover:from-emerald-500/5 group-hover:to-teal-500/5 pointer-events-none transition-all duration-500"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Call to Action -->
+        <div class="mt-8 md:mt-12 text-center team-cta">
+            <div class="inline-block glass-card rounded-2xl p-6 md:p-8 max-w-2xl">
+                <h3 class="text-xl md:text-2xl font-bold text-white mb-2 md:mb-3">
+                    Ready to Start Your <span class="text-blue-400">Dream Project?</span>
+                </h3>
+                <p class="text-gray-400 mb-4 md:mb-6 text-xs md:text-sm">
+                    Our expert team is here to transform your vision into architectural excellence
+                </p>
+                <a href="#contact" class="hover-trigger inline-flex items-center justify-center px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-bold rounded-full hover:from-blue-500 hover:to-cyan-500 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/50 text-sm md:text-base">
+                    <span>Get In Touch</span>
+                    <svg class="w-4 h-4 md:w-5 md:h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section id="testimonials" class="py-20 md:py-32 bg-hgDark overflow-hidden relative">
+
+  <div class="max-w-7xl mx-auto px-6 md:px-8">
+
+    <!-- Section Header -->
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-20 border-b border-white/10 pb-6">
+      <h2 class="text-4xl md:text-7xl font-bold text-white">
+        CLIENT <span class="text-gray-600">REVIEWS</span>
+      </h2>
+      <p class="text-blue-300 md:w-1/3 mt-4 md:mt-0 text-sm md:text-base">
+        Trusted by homeowners and businesses for quality, transparency, and timely delivery.
+      </p>
+    </div>
+
+    <!-- Horizontal Scroll Wrapper -->
+<div class="relative overflow-hidden">
+<div class="testimonial-track flex gap-6 md:gap-6 overflow-x-auto overflow-y-hidden scroll-smooth" style="scrollbar-width: none; -ms-overflow-style: none;">
+
+        <!-- CARD 1 -->
+        <div class="testimonial-card glass-card relative min-w-[300px] md:min-w-[400px] p-6 md:p-8 rounded-2xl">
+
+          <i class="fas fa-quote-right absolute top-6 right-6 text-white/10 text-4xl"></i>
+
+          <div class="flex items-center gap-1 mb-4 text-yellow-400">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+
+          <p class="text-gray-300 text-sm md:text-base leading-relaxed mb-6">
+            “HG Design & Constructions delivered exactly what they promised.
+            Excellent planning, strong structure, and professional execution.”
+          </p>
+
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center font-bold text-purple-400">
+              AK
+            </div>
+            <div>
+              <h4 class="text-white font-semibold">Amit Kumar</h4>
+              <p class="text-gray-400 text-xs">Residential Project, Patna</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="testimonial-card glass-card relative min-w-[300px] md:min-w-[400px] p-6 md:p-8 rounded-2xl">
+
+          <i class="fas fa-quote-right absolute top-6 right-6 text-white/10 text-4xl"></i>
+
+          <div class="flex items-center gap-1 mb-4 text-yellow-400">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+
+          <p class="text-gray-300 text-sm md:text-base leading-relaxed mb-6">
+            “Vastu-compliant design with clear guidance throughout the project.
+            The team maintained quality from start to finish.”
+          </p>
+
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center font-bold text-green-400">
+              RS
+            </div>
+            <div>
+              <h4 class="text-white font-semibold">Ravi Singh</h4>
+              <p class="text-gray-400 text-xs">Duplex House</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="testimonial-card glass-card relative min-w-[300px] md:min-w-[400px] p-6 md:p-8 rounded-2xl">
+
+          <i class="fas fa-quote-right absolute top-6 right-6 text-white/10 text-4xl"></i>
+
+          <div class="flex items-center gap-1 mb-4 text-yellow-400">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+
+          <p class="text-gray-300 text-sm md:text-base leading-relaxed mb-6">
+            “Budget-friendly and transparent pricing.
+            The renovation work was completed on time with great detailing. Thank You HG Design & Construction”
+          </p>
+
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-full bg-red-500/20 flex items-center justify-center font-bold text-red-400">
+              NP
+            </div>
+            <div>
+              <h4 class="text-white font-semibold">Neha Pandey</h4>
+              <p class="text-gray-400 text-xs">Interior & Renovation</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Blog Section -->
+<section id="blog" class="py-20 md:py-32 px-6 md:px-8 lg:px-12 bg-hgDark relative overflow-hidden">
+    <!-- Background Decoration -->
+    <div class="absolute top-40 left-0 w-96 h-96 bg-hgAccent/5 rounded-full blur-3xl"></div>
+    
+    <div class="max-w-7xl mx-auto relative z-10">
+        <!-- Title Section -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 md:mb-12 border-b border-white/10 pb-6 md:pb-8">
+            <h2 class="text-4xl md:text-6xl font-bold text-white">
+                CONSTRUCTION <span class="text-gray-600">TIPS</span>
+            </h2>
+            <p class="text-blue-300 md:w-1/3 mt-4 md:mt-0 text-sm md:text-base">
+                Essential construction insights and professional guidance for your project success.
+            </p>
+        </div>
+
+        <!-- Tips Grid -->
+        <div class="space-y-8">
+            
+            <!-- Tip Card 1 - Vastu Planning (Content Left, Image Right) -->
+            <div class="glass-card rounded-2xl overflow-hidden hover:border-hgAccent/40 transition-all duration-500 border border-white/5">
+                <div class="grid md:grid-cols-2 gap-0">
+                    
+                    <!-- Content Left -->
+                    <div class="p-6 md:p-8 flex flex-col justify-center order-2 md:order-1">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="bg-blue-500/10 text-blue-400 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                                Tip 01
+                            </span>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="w-14 h-14 md:w-16 md:h-16 rounded-xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center mb-4">
+                                <svg class="w-7 h-7 md:w-8 md:h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path>
+                                </svg>
+                            </div>
+
+                            <h3 class="text-xl md:text-2xl font-bold text-white mb-3 leading-tight">
+                                Building Should Have Planning as Per Vastu
+                            </h3>
+                            
+                            <p class="text-gray-400 text-sm md:text-base leading-relaxed mb-4">
+                                Proper Vastu-compliant planning ensures positive energy flow, harmonious living spaces, and balanced environments. Our expert team integrates ancient Vastu principles with modern architectural design.
+                            </p>
+
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="text-xs text-blue-300 bg-blue-500/10 px-2 py-1 rounded-full">Direction Alignment</span>
+                                <span class="text-xs text-cyan-300 bg-cyan-500/10 px-2 py-1 rounded-full">Energy Balance</span>
+                                <span class="text-xs text-blue-300 bg-blue-500/10 px-2 py-1 rounded-full">Space Harmony</span>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-white/10 flex items-center justify-between">
+                            <div class="flex items-center gap-2 text-xs text-gray-500">
+                                <i class="fas fa-lightbulb text-blue-400"></i>
+                                <span>Essential for positive living</span>
+                            </div>
+                            <a href="#contact" class="text-blue-400 hover:text-blue-300 transition-colors flex items-center gap-2 font-semibold text-xs">
+                                Consult Expert
+                                <i class="fas fa-arrow-right text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Image Right -->
+                    <div class="relative h-64 md:h-auto order-1 md:order-2">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2940&auto=format&fit=crop" 
+                             alt="Vastu Planning" 
+                             class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-l from-transparent to-hgDark/20"></div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Tip Card 2 - Structural Design (Image Left, Content Right) -->
+            <div class="glass-card rounded-2xl overflow-hidden hover:border-hgAccent/40 transition-all duration-500 border border-white/5">
+                <div class="grid md:grid-cols-2 gap-0">
+                    
+                    <!-- Image Left -->
+                    <div class="relative h-64 md:h-auto">
+                        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2831&auto=format&fit=crop" 
+                             alt="Structural Design" 
+                             class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-r from-transparent to-hgDark/20"></div>
+                    </div>
+
+                    <!-- Content Right -->
+                    <div class="p-6 md:p-8 flex flex-col justify-center">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="bg-cyan-500/10 text-cyan-400 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                                Tip 02
+                            </span>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="w-14 h-14 md:w-16 md:h-16 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 flex items-center justify-center mb-4">
+                                <svg class="w-7 h-7 md:w-8 md:h-8 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                                </svg>
+                            </div>
+
+                            <h3 class="text-xl md:text-2xl font-bold text-white mb-3 leading-tight">
+                                Should Have Proper Working Structure Design
+                            </h3>
+                            
+                            <p class="text-gray-400 text-sm md:text-base leading-relaxed mb-4">
+                                A well-engineered structural design is the foundation of any safe and durable building. Our M.Tech certified engineers ensure load-bearing calculations, earthquake resistance, and material optimization.
+                            </p>
+
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="text-xs text-cyan-300 bg-cyan-500/10 px-2 py-1 rounded-full">Load Analysis</span>
+                                <span class="text-xs text-blue-300 bg-blue-500/10 px-2 py-1 rounded-full">Safety Standards</span>
+                                <span class="text-xs text-cyan-300 bg-cyan-500/10 px-2 py-1 rounded-full">Durability</span>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-white/10 flex items-center justify-between">
+                            <div class="flex items-center gap-2 text-xs text-gray-500">
+                                <i class="fas fa-shield-alt text-cyan-400"></i>
+                                <span>Built to last decades</span>
+                            </div>
+                            <a href="#contact" class="text-cyan-400 hover:text-cyan-300 transition-colors flex items-center gap-2 font-semibold text-xs">
+                                Get Quote
+                                <i class="fas fa-arrow-right text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Call to Action Box -->
+        <div class="mt-8 md:mt-12">
+            <div class="glass-card rounded-2xl p-6 md:p-8 text-center max-w-3xl mx-auto border border-hgAccent/20">
+                <div class="mb-4">
+                    <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/10 mb-3">
+                        <i class="fas fa-comments text-blue-400 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-bold text-white mb-2">
+                        Need Expert Construction Guidance?
+                    </h3>
+                    <p class="text-gray-400 text-sm md:text-base max-w-xl mx-auto">
+                        Our team of certified professionals is ready to help you with Vastu planning, structural design, and complete project execution.
+                    </p>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row gap-3 justify-center items-center">
+                    <a href="#contact" class="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-bold rounded-full hover:from-blue-500 hover:to-cyan-500 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/50 text-sm">
+                        <i class="fas fa-phone-alt mr-2"></i>
+                        <span>Schedule Consultation</span>
+                    </a>
+                    <a href="#services" class="inline-flex items-center justify-center px-6 py-3 border-2 border-blue-400 text-blue-400 font-bold rounded-full hover:bg-blue-400 hover:text-white transition-all duration-300 text-sm">
+                        <i class="fas fa-list-check mr-2"></i>
+                        <span>View All Services</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- Patna's Finest Section -->
     <div class="h-[50vh] relative overflow-hidden flex items-center justify-center">
         <div class="absolute inset-0 bg-black/40 z-10"></div>
         <img src="https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?q=80&w=2897&auto=format&fit=crop" class="parallax-img w-full h-[120%] object-cover absolute top-0" alt="Architecture">
@@ -195,7 +948,7 @@
         </h2>
     </div>
 
-    <section id="contact" class="py-32 px-4 bg-hgDark relative overflow-hidden">
+    <section id="contact" class="py-32 md:py-[160px] px-4 bg-hgDark relative overflow-hidden">
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/20 rounded-full blur-[120px] pointer-events-none"></div>
 
         <div class="max-w-5xl mx-auto text-center relative z-10">
@@ -213,44 +966,123 @@
                     <i class="fa-brands fa-whatsapp mr-3"></i> +91 878-989-0316
                 </a>
             </div>
-
-            <div class="mt-16 pt-16 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-gray-500 text-sm">
-                <div class="flex items-center gap-2 mb-4 md:mb-0">
-                    <i class="fa-solid fa-location-dot text-blue-500"></i>
-                    <span>Bahadurpur Gumti, Rajendranagar, Patna-16</span>
-                </div>
-                <div class="flex gap-6">
-                    <a href="#" class="hover:text-white transition">Instagram</a>
-                    <a href="#" class="hover:text-white transition">Facebook</a>
-                    <a href="#" class="hover:text-white transition">YouTube</a>
-                </div>
-            </div>
         </div>
     </section>
 
+<!-- Footer -->
+<footer class="bg-hgBlue border-t border-white/5 relative overflow-hidden">
+    <!-- Background decoration -->
+    <div class="absolute inset-0 opacity-5">
+        <div class="absolute top-0 left-1/4 w-64 h-64 bg-blue-500 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-1/4 w-64 h-64 bg-cyan-500 rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 md:px-12 py-8 md:py-12 relative z-10">
+        <!-- Main Footer Content -->
+        <div class="grid md:grid-cols-2 gap-12 md:gap-16 mb-6 pb-6 border-b border-white/10">
+            
+            <!-- Logo & Company Info -->
+            <div class="text-center md:text-left">
+                <div class="flex items-center gap-3 justify-center md:justify-start mb-3">
+                    <img src="./assets/HG_logo.png" alt="HG Design Logo" class="w-10 h-10 object-contain brightness-0 invert">
+                    <div class="text-xl font-bold tracking-tighter text-white">
+                        HG<span class="font-light text-blue-400">.Design</span>
+                    </div>
+                </div>
+                <p class="text-blue-300 text-sm font-semibold mb-4">A Group of Engineers & Architects</p>
+                
+                <!-- Business Details Cards -->
+                <div class="grid grid-cols-2 gap-3 mt-4">
+                    <div class="bg-white/5 rounded-lg p-3 border border-blue-400/20">
+                        <p class="text-blue-300 text-xs font-semibold mb-1">GSTN</p>
+                        <p class="text-gray-300 text-xs font-mono">10DBOPK6097R1ZT</p>
+                    </div>
+                    <div class="bg-white/5 rounded-lg p-3 border border-blue-400/20">
+                        <p class="text-blue-300 text-xs font-semibold mb-1">UDYAM</p>
+                        <p class="text-gray-300 text-xs font-mono">BR-26-0144755</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="text-center md:text-right space-y-3">
+                <h3 class="text-white font-bold text-sm mb-4 uppercase tracking-wider">Get In Touch</h3>
+                
+                <div class="text-gray-400 text-sm flex items-center gap-3 justify-center md:justify-end">
+                    <i class="fas fa-phone text-blue-400"></i>
+                    <div class="flex gap-1 text-center md:text-right">
+                        <a href="tel:+918789890316" class="hover:text-blue-400 transition">+91-8789890316</a>
+                    </div>
+                </div>
+
+                <div class="text-gray-400 text-sm flex items-start gap-3 justify-center md:justify-end">
+                    <i class="fas fa-envelope text-blue-400 mt-1"></i>
+                    <a href="mailto:hgdesignconstruction21@gmail.com" class="hover:text-blue-400 transition break-all">
+                        hgdesignconstruction21@gmail.com
+                    </a>
+                </div>
+
+                <div class="text-gray-400 text-xs md:text-sm flex items-start gap-3 justify-center md:justify-end">
+                    <i class="fas fa-location-dot text-blue-400 mt-1"></i>
+                    <span>Bahadurpur Gumti, Rajendranagar, Patna-16</span>
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+            <!-- Copyright -->
+            <div class="text-gray-500 text-center md:text-left">
+                © 2026 HG Design & Constructions. All rights reserved.
+            </div>
+
+            <!-- Made by -->
+            <div class="text-gray-500 text-center md:text-right">
+                Designed & Developed by 
+                <a href="https://www.geeksforgeeks.org/" target="_blank" class="text-blue-400 hover:text-blue-300 font-semibold transition-colors mx-1">
+                    GFG MERN Patna
+                </a>
+                <span class="text-gray-600">•</span>
+                <span class="text-gray-400 ml-1">Crafted by</span>
+                <a href="https://www.linkedin.com/in/manshi-ruj-333489382" target="_blank" class="text-blue-300 hover:text-blue-200 font-semibold transition-colors mx-1">
+                    Manshi Ruj
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
 
-    <script>
-        // 1. Initialize Smooth Scroll (Lenis)
-        const lenis = new Lenis({
-            duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            direction: 'vertical',
-            smooth: true,
-        });
+<script>
+    // 1. Initialize Smooth Scroll (Lenis)
+    const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        direction: 'vertical',
+        smooth: true,
+    });
 
-        function raf(time) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
-        }
+    function raf(time) {
+        lenis.raf(time);
         requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
 
-        // 2. Custom Cursor Logic
-        const cursorDot = document.querySelector('.cursor-dot');
-        const cursorOutline = document.querySelector('.cursor-outline');
-        
+    // 2. Custom Cursor Logic (Desktop only)
+    const cursorDot = document.querySelector('.cursor-dot');
+    const cursorOutline = document.querySelector('.cursor-outline');
+    
+    // Only run cursor logic on desktop
+    const isDesktop = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    
+    if (isDesktop && cursorDot && cursorOutline) {
         window.addEventListener('mousemove', (e) => {
             const posX = e.clientX;
             const posY = e.clientY;
@@ -259,7 +1091,7 @@
             cursorDot.style.left = `${posX}px`;
             cursorDot.style.top = `${posY}px`;
 
-            // Outline follows with slight delay (handled by CSS transition or GSAP)
+            // Outline follows with slight delay
             cursorOutline.animate({
                 left: `${posX}px`,
                 top: `${posY}px`
@@ -280,70 +1112,331 @@
                 cursorOutline.style.backgroundColor = 'transparent';
             });
         });
+    }
 
-        // 3. GSAP Animations
-        gsap.registerPlugin(ScrollTrigger);
+    // 3. GSAP Animations
+    gsap.registerPlugin(ScrollTrigger);
 
-        // Hero Section Animation
-        const tl = gsap.timeline();
-        tl.to(".hero-text", {
-            y: 0,
-            opacity: 1,
-            duration: 1,
-            stagger: 0.2,
-            ease: "power3.out"
-        })
-        .to("#hero-img", {
-            scale: 1,
-            duration: 1.5,
-            ease: "power2.out"
-        }, "-=1");
+    // Hero Section Animation
+    const tl = gsap.timeline();
+    tl.to(".hero-text", {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        stagger: 0.2,
+        ease: "power3.out"
+    })
+    .to("#hero-img", {
+        scale: 1,
+        duration: 1.5,
+        ease: "power2.out"
+    }, "-=1");
 
-        // Marquee Animation
-        gsap.to(".marquee-content", {
-            xPercent: -50,
-            repeat: -1,
-            duration: 20,
-            ease: "linear"
-        });
+    // Marquee Animation
+    gsap.to(".marquee-content", {
+        xPercent: -50,
+        repeat: -1,
+        duration: 20,
+        ease: "linear"
+    });
 
-        // Services Stagger
-        gsap.from(".service-card", {
-            scrollTrigger: {
-                trigger: "#services",
-                start: "top 70%",
+    // Services Stagger
+    gsap.set(".service-card", { y: 100, opacity: 0 });
+    gsap.to(".service-card", {
+        scrollTrigger: {
+            trigger: "#services",
+            start: "top 70%",
+        },
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        stagger: 0.1,
+        ease: "power2.out"
+    });
+
+    // Parallax Image Effect
+    gsap.to(".parallax-img", {
+        scrollTrigger: {
+            trigger: ".parallax-img",
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true
+        },
+        yPercent: 20,
+        ease: "none"
+    });
+
+    // Title Reveal
+    gsap.from(".section-title", {
+        scrollTrigger: {
+            trigger: "#services",
+            start: "top 80%",
+        },
+        x: -50,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out"
+    });
+
+    gsap.from('.about-title', {
+        scrollTrigger: {
+            trigger: '.about-title',
+            start: 'top 80%',
+        },
+        x: -50,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power2.out'
+    });
+
+    gsap.from('.about-image', {
+        scrollTrigger: {
+            trigger: '.about-image',
+            start: 'top 70%',
+        },
+        x: -60,
+        opacity: 0,
+        duration: 1,
+        ease: 'power3.out'
+    });
+
+    gsap.from('.about-content', {
+        scrollTrigger: {
+            trigger: '.about-content',
+            start: 'top 70%',
+        },
+        x: 60,
+        opacity: 0,
+        duration: 1,
+        ease: 'power3.out'
+    });
+
+    gsap.from('.about-stats > div', {
+        scrollTrigger: {
+            trigger: '.about-stats',
+            start: 'top 80%',
+        },
+        y: 30,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: 'power2.out'
+    });
+
+    // Certifications Section Animations
+    gsap.from('.cert-title', {
+        scrollTrigger: {
+            trigger: '.cert-title',
+            start: 'top 80%',
+        },
+        x: -50,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power3.out'
+    });
+
+    gsap.from('.cert-subtitle', {
+        scrollTrigger: {
+            trigger: '.cert-subtitle',
+            start: 'top 80%',
+        },
+        x: 50,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power3.out'
+    });
+
+    gsap.set('.cert-card', { y: 100, opacity: 0 });
+    gsap.to('.cert-card', {
+        scrollTrigger: {
+            trigger: '.cert-card',
+            start: 'top 75%',
+        },
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        stagger: 0.2,
+        ease: 'power3.out'
+    });
+
+    // Team Section Animations
+    gsap.from('.team-badge', {
+        scrollTrigger: {
+            trigger: '.team-badge',
+            start: 'top 80%',
+        },
+        scale: 0,
+        opacity: 0,
+        duration: 0.6,
+        ease: 'back.out(1.7)'
+    });
+
+    gsap.from('.team-title', {
+        scrollTrigger: {
+            trigger: '.team-title',
+            start: 'top 80%',
+        },
+        y: 50,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power3.out'
+    });
+
+    gsap.from('.team-desc', {
+        scrollTrigger: {
+            trigger: '.team-desc',
+            start: 'top 80%',
+        },
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        delay: 0.2,
+        ease: 'power2.out'
+    });
+
+    gsap.from('.team-card', {
+        scrollTrigger: {
+            trigger: '.team-card',
+            start: 'top 70%',
+        },
+        y: 100,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.2,
+        ease: 'power3.out'
+    });
+
+    gsap.from('.team-cta', {
+        scrollTrigger: {
+            trigger: '.team-cta',
+            start: 'top 80%',
+        },
+        scale: 0.9,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power2.out'
+    });
+
+    // Testimonials Section Animations
+    gsap.from('#testimonials h2', {
+        scrollTrigger: {
+            trigger: '#testimonials',
+            start: 'top 80%',
+        },
+        x: -50,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power3.out'
+    });
+
+    gsap.from('#testimonials p.text-blue-300', {
+        scrollTrigger: {
+            trigger: '#testimonials',
+            start: 'top 80%',
+        },
+        x: 50,
+        opacity: 0,
+        duration: 0.8,
+        delay: 0.2,
+        ease: 'power3.out'
+    });
+
+    gsap.from(".testimonial-card", {
+        scrollTrigger: {
+            trigger: "#testimonials",
+            start: "top 75%"
+        },
+        opacity: 0,
+        y: 50,
+        duration: 0.7,
+        stagger: 0.15,
+        ease: "power3.out"
+    });
+
+    // Navbar Background on Scroll
+    gsap.to("nav", {
+        scrollTrigger: {
+            trigger: "body",
+            start: "100px top",
+            end: "100px top",
+            toggleActions: "play none none reverse",
+            onEnter: () => {
+                gsap.to("nav", {
+                    backgroundColor: "#000",
+                    backdropFilter: "blur(12px)",
+                    borderBottom: "1px solid rgba(59, 130, 246, 0.2)",
+                    boxShadow: "0 4px 20px rgba(59, 130, 246, 0.15)",
+                    duration: 0.3,
+                    ease: "power2.out"
+                });
             },
-            y: 100,
-            opacity: 0,
-            duration: 0.8,
-            stagger: 0.1,
-            ease: "power2.out"
+            onLeaveBack: () => {
+                gsap.to("nav", {
+                    backgroundColor: "transparent",
+                    backdropFilter: "blur(0px)",
+                    borderBottom: "1px solid transparent",
+                    boxShadow: "0 0 0 rgba(59, 130, 246, 0)",
+                    duration: 0.3,
+                    ease: "power2.out"
+                });
+            }
+        }
+    });
+
+    // Mobile Menu Toggle - FIXED
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeMenuBtn = document.getElementById('close-menu');
+    const menuItems = document.querySelectorAll('.menu-item');
+
+    if (hamburger && mobileMenu && closeMenuBtn) {
+        // Open menu
+        hamburger.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            mobileMenu.style.transform = 'translateY(0)';
+            mobileMenu.style.visibility = 'visible';
+            mobileMenu.style.opacity = '1';
+            mobileMenu.style.transition = 'transform 0.5s ease-out, opacity 0.3s ease-out';
+            document.body.classList.add('menu-open');
+            
+            // Animate menu items
+            setTimeout(() => {
+                gsap.from('.menu-item', {
+                    y: 50,
+                    opacity: 0,
+                    duration: 0.5,
+                    stagger: 0.1,
+                    ease: 'power3.out'
+                });
+            }, 100);
         });
 
-        // Parallax Image Effect
-        gsap.to(".parallax-img", {
-            scrollTrigger: {
-                trigger: ".parallax-img",
-                start: "top bottom",
-                end: "bottom top",
-                scrub: true
-            },
-            yPercent: 20,
-            ease: "none"
-        });
+        // Close menu function
+        const closeMobileMenu = () => {
+            mobileMenu.style.transform = 'translateY(-100%)';
+            mobileMenu.style.opacity = '0';
+            document.body.classList.remove('menu-open');
+            setTimeout(() => {
+                mobileMenu.style.visibility = 'hidden';
+            }, 500);
+        };
 
-        // Title Reveal
-        gsap.from(".section-title", {
-            scrollTrigger: {
-                trigger: "#services",
-                start: "top 80%",
-            },
-            x: -50,
-            opacity: 0,
-            duration: 1,
-            ease: "power3.out"
+        // Close button
+        closeMenuBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            closeMobileMenu();
         });
-
-    </script>
+        
+        // Menu items
+        menuItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                closeMobileMenu();
+            });
+        });
+    }
+</script>
 </body>
 </html>
