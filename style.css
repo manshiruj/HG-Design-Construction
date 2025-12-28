@@ -1,0 +1,67 @@
+/* Hide default cursor to use custom one */
+        body { cursor: none; background-color: #020617; color: white; }
+        
+        /* Smooth Scroll Fixes */
+        html.lenis { height: auto; }
+        .lenis.lenis-smooth { scroll-behavior: auto; }
+        .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+        .lenis.lenis-stopped { overflow: hidden; }
+        
+        /* Glassmorphism Card */
+        .glass-card {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Custom Cursor */
+        .cursor-dot, .cursor-outline {
+            position: fixed;
+            top: 0;
+            left: 0;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            z-index: 9999;
+            pointer-events: none;
+        }
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #3b82f6;
+        }
+        .cursor-outline {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(59, 130, 246, 0.5);
+            transition: width 0.2s, height 0.2s, background-color 0.2s;
+        }
+        
+        /* Text Selection Color */
+        ::selection { background: #3b82f6; color: white; }
+
+        /* Initial state for service cards */
+        .service-card {
+            opacity: 0;
+            transform: translateY(100px);
+        }
+        .section-title {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: none !important;
+        }
+        /* Prevent scrolling when menu is open */
+        body.menu-open {
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        /* Mobile menu initial state */
+        #mobile-menu {
+            transform: translateY(-100%);
+        }
+        /* Hide hamburger when menu is open */
+        body.menu-open nav #hamburger {
+            opacity: 0;
+            pointer-events: none;
+        }
